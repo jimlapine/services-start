@@ -8,7 +8,7 @@ import { AccountsService } from '../account.service';
   styleUrls: ['./account.component.css'],
   // What class is providing the service
   // AccountsService is not a provider here, we use the instance created in the app.module
-  providers: [LoggingService]
+  // providers: [LoggingService]
 })
 export class AccountComponent {
   @Input() account: {name: string, status: string};
@@ -20,6 +20,6 @@ export class AccountComponent {
 
   onSetTo(status: string) {
     this.accountsService.updateStatus(this.id, status);
-    this.loggingServce.logStatusChange(status);
+    // this.loggingServce.logStatusChange(status);
   }
 }
