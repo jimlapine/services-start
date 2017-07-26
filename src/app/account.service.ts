@@ -1,7 +1,7 @@
 import { LoggingService } from './logging.service';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
-// allows this class to be injected into, in this case the logging service
+// Allows this class to be injected into, in this case the logging service
 // Add to service that you want somthing injected into
 @Injectable()
 export class AccountsService {
@@ -20,6 +20,7 @@ export class AccountsService {
     }
   ];
 
+  statusUpdated =  new EventEmitter<string>();
   constructor(private loggingService: LoggingService) {}
 
   addAccount(name: string, status: string) {
@@ -28,7 +29,7 @@ export class AccountsService {
 
   }
 
-  updateStatus(id:number, status: string) {
+  updateStatus(id: number, status: string) {
     this.accounts[id].status = status;
     this.loggingService.logStatusChange(status);
   }
