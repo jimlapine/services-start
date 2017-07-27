@@ -14,6 +14,7 @@ export class NewAccountComponent {
   // This informs Angular that we will need and instance of this logging service
   constructor(private loggingServce: LoggingService,
               private accountsService: AccountsService) {
+                
       // Subscribe to the event emitted by the service
       this.accountsService.statusUpdated.subscribe(
         (status: string) => alert(`New status: ${status}`)
